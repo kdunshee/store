@@ -20,14 +20,16 @@ class DepartmentsController < ApplicationController
       else
       render :new
       end
+   end
 
   def updated 
     if department.update(department_params)
       redirect_to department 
+    end
   end
 
   def edit
-    render: "partial form"
+    # render: "partial form"
   end
 
   def destroy 
@@ -39,4 +41,6 @@ class DepartmentsController < ApplicationController
 
   def set_department
     @department = Department.find(params[:id])
- end
+  end
+
+end

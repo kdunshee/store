@@ -1,2 +1,7 @@
-<h1>Departments#index</h1>
-<p>Find me in app/views/departments/index.html.erb</p>
+<h1>Welcome to da store</h1>
+<h2> Click for a list of items in each department </h2>
+
+<% @departments.each do |department| %>
+<h3><%= department.name %></h3>
+<%= link_to "View department", department_path(department) %>
+<%end%>

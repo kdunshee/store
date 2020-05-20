@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   # get 'departments/new'
   # get 'departments/edit'
 
-  resources :department
-  resources :item 
-
-  root "department#index"
+  resources departments do
+    resources :items
+  end
+  root "departments#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
