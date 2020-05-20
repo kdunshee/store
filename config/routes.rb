@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # get 'departments/new'
   # get 'departments/edit'
 
-  resources departments do
+  resources :departments do
     resources :items
   end
   root "departments#index"

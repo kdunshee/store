@@ -1,13 +1,13 @@
 class DepartmentsController < ApplicationController
   
-  before_action :set_departmet, only: [:show, :edit, :destroy, :update]
-
+  
   
   def index
     @departments = Department.all
   end
 
   def show
+    @department = Department.find(params[:id])
   end
 
   def new
@@ -16,31 +16,42 @@ class DepartmentsController < ApplicationController
 
   def create
     @department = Department.new(department_params)
-    if @deparment.save redirect to department_paths
-      else
+    if @department.save
+      redirect_to departments_path
+    else
       render :new
-      end
-   end
-
-  def updated 
-    if department.update(department_params)
-      redirect_to department 
     end
   end
+
+  
+    def update
+      @department = Department.find(params[:id])
+      if @department.update(department_params)
+        redirect_to department_params 
+      else
+        render :edit
+      end
+    end
 
   def edit
     # render: "partial form"
   end
 
-  def destroy 
+  def destroy
+  
+    @department = Department.find(params[:id])
     @department.destroy
-    redirect to departments_paths
+    redirect_to departments_path #We need to create this path
   end
 
   private
 
   def set_department
     @department = Department.find(params[:id])
+  end
+
+  def department_params
+    params.require(:department).permit(:name)
   end
 
 end

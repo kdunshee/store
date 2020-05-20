@@ -1,7 +1,13 @@
 <h1>Welcome to da store</h1>
+<%= link_to "Create Department", new_department_path %>
 <h2> Click for a list of items in each department </h2>
 
 <% @departments.each do |department| %>
 <h3><%= department.name %></h3>
-<%= link_to "View department", department_path(department) %>
+<%= link_to "View Department", departments_path(department) %>
+<%= link_to "Edit Department", edit_department_path(department) %>
+<%= link_to "Delete Department", departments_path(department) %>
+
+
+
 <%end%>
