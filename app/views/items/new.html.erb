@@ -1,2 +1,8 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<h1>Items</h1>
+<<%= form_for @department do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :price %>
+  <%= f.text_field :description%>
+
+  <%= f.submit %>
+<% end %>

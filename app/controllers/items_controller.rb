@@ -18,7 +18,8 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
     if @item.save
       redirect_to [@department, @item]
     else render :new 
-    end
+  end
+end
 
   def destroy
     @item.destroy
@@ -26,6 +27,7 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
+    # @department need to assign this to something 
   end
 
   def update
@@ -35,6 +37,7 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
     else
       render :edit
     end
+  end
 
 
   private

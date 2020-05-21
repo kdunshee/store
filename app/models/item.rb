@@ -1,4 +1,3 @@
 class Item < ApplicationRecord
-
-    #needs to belong to department
+  belongs_to :department
 end
