@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
-before_action :set_item, only: [:show, :edit, :update, :destroy]
+
+  
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   
   
   def index
@@ -23,7 +25,7 @@ end
 
   def destroy
     @item.destroy
-    redirect_to department_item_path(@department)
+    redirect_to edit_department_item_path(@department)
   end
 
   def edit
@@ -50,6 +52,7 @@ end
     @item = Item.find(params[:id])
   end
 
+  
 
 
 end
