@@ -1,9 +1,8 @@
-<<h1>Welcome to the store</h1>
-<%= link_to "Create Department", new_department_path %>
-<h2> Click for a list of items in each department </h2>
+<h1>Click an Item To View It</h1>
+<%= link_to 'Add Item', new_department_item_path(@department) %>
+<ul>
+  <% @items.each do |item| %>
+    <li><%= link_to item.name, [@department, @item] %></li>
+  <% end %>
+</ul>
 
-<% @departments.each do |department| %>
-<h3><%= department.name %></h3>
-<%= link_to "View Department", department_path(department) %>
-<%= link_to "Edit Department", edit_department_path(department) %>
-<%= link_to "Delete Department", department_path(department), method: :delete %>

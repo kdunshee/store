@@ -10,6 +10,7 @@ class DepartmentsController < ApplicationController
 
   def new
     @department = Department.new
+    render partial: "form"
   end
 
   def create
@@ -30,12 +31,12 @@ class DepartmentsController < ApplicationController
   end
 
   def edit
-    # render: "partial form"
+    render partial: "form"
   end
 
   def destroy
     @department.destroy
-    redirect_to departments_path #We need to create this path
+    redirect_to departments_path 
   end
 
   private
@@ -47,5 +48,4 @@ class DepartmentsController < ApplicationController
   def department_params
     params.require(:department).permit(:name)
   end
-
 end

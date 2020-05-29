@@ -1,9 +1,11 @@
-<h1>item Content</h1>
+<h1>Item Content</h1>
 
-<h2> Click for a list of items in each item </h2>
+<h2>  </h2>
+
 
 <% @department.items.each do |i| %>
 <h3><%= i.name %></h3>
+
 <%= link_to "View item details", department_item_path(@department, i) %>
 <%= link_to "Edit item", edit_department_item_path(@department, i) %>
 <%= link_to "Delete item", department_item_path(@department, i), method: :delete %>
@@ -13,3 +15,4 @@
 <%end%>
 
 
+<%= link_to "Create Item", new_department_item_path(@department)%> 

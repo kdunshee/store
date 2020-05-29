@@ -1,9 +1,5 @@
-<h1>Edit</h1>
-<%= form_for [@deparment, @item] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :price %>
-  <%= f.text_field :description%>
+<h1>Edit Item</h1>
+<%= render "form", department: @department, item: @item %>
 
-  <%= f.submit %>
-<% end %>
+<%= link_to "Back", departement_item_path(@zoo) %>
 

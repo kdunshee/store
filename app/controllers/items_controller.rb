@@ -5,23 +5,24 @@ class ItemsController < ApplicationController
   
   
   def index
-    @item = @department.items
+    @items = @department.items
   end
 
   def show
   end
 
   def new
-    @item = @departments.item.new
+    @item = @department.items.new
+    render partial: "form"
   end
 
  def create
-  @item = @department.item.new(item_params)
+  @item = @department.items.new(item_params)
     if @item.save
       redirect_to [@department, @item]
     else render :new 
   end
-end
+ end
 
   def destroy
     @item.destroy
@@ -29,13 +30,13 @@ end
   end
 
   def edit
-    # @department need to assign this to something 
+    render partial: "form"
   end
 
   def update
     if @item.update(item_params)
       redirect_to [@department, @item]
-      # same as redirect_to sub_topic_path(@sub, @topic)
+      
     else
       render :edit
     end
@@ -45,16 +46,16 @@ end
   private
 
   def item_params
-    params.require(:item).permit(:name, :department)
+    params.require(:item).permit(:name, :price, :description, :department)
   end
 
   def set_item
     @item = Item.find(params[:id])
   end
 
-  
-
-
+  def set_department
+    @department = Department.find(params[:department_id])
+  end
 end
 
 

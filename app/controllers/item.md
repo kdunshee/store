@@ -1,0 +1,1 @@
+Last time I did the project we only got to creating the departments. This time I wanted to focus on routing the items correctly and being able to create them. I wasn't able to complete the full project but made a lot of progress and learned a lot more. 

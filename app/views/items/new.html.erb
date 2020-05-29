@@ -1,8 +1,5 @@
-<h1>Items</h1>
-<<%= form_for @department do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :price %>
-  <%= f.text_field :description%>
+<h1>New Item</h1>
 
-  <%= f.submit %>
-<% end %>
+<%= render "form", department: @department, item: @item %>
+
+<%= link_to "Back", departement_item_path(@zoo) %>
